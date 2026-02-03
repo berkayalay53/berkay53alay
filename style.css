@@ -75,13 +75,13 @@ body {
 }
 
 .quote {
-  max-width: 520px;
-  margin: 10rem 0;
+  max-width: 460px; /* 520px idi, daralttık. Daha dikey ve şık duracak. */
+  margin: 9rem 0;   /* Aralığı biraz dengelendi */
   opacity: 0;
   transform: translateY(40px);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   background: rgba(0,0,0,0.25); 
-  padding: 30px;
+  padding: 20px;    /* 30px idi, 20px yaptık. Kutu kabalığını attı. */
   border-radius: 4px;
   backdrop-filter: blur(2px);
 }

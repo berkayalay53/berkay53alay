@@ -45,7 +45,7 @@
       <span>Kaybolan Sesin Defteri</span>
     </section>
 
-    <section class="divider"><span>~</span></section>
+    <section class="divider"><span>•</span></section>
 
     <section class="quote q-right">
       <p>“Yanlış anlaşılmak, en çok kendini anlatmaktan vazgeçtiğinde olur.”</p>
@@ -62,7 +62,7 @@
       <span>İzler</span>
     </section>
 
-    <section class="divider"><span>~</span></section>
+    <section class="divider"><span>•</span></section>
 
     <section class="quote q-left">
       <p>“Bazen biri sizi hatırlamadan geçer. Ama siz... onu unutamazsınız.”</p>
@@ -80,7 +80,7 @@
     </section>
 
     <div class="end-mark">
-      <a href="https://berkayalay53.github.io/" class="home-link">Ana Sayfaya Dön</a>
+      <a href="https://berkayalay53.github.io/" class="home-link">← Ana Sayfaya Dön</a>
     </div>
 
   </main>
@@ -90,7 +90,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });

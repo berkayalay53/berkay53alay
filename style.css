@@ -132,4 +132,20 @@ body {
 
 @media (max-width: 768px) {
   .quote { max-width: 100%; margin: 6rem 0; }
+
+}
+/* === ZARİF KAYDIRMA ÇUBUĞU === */
+::-webkit-scrollbar {
+  width: 8px; /* Çok ince */
+}
+::-webkit-scrollbar-track {
+  background: #080808; /* Arka planla aynı renk */
+}
+::-webkit-scrollbar-thumb {
+  background: #444; /* İlk başta sönük */
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a373; /* Üzerine gelince parlasın (Pas Rengi) */
 }

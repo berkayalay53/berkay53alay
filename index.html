@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İzler — Berkay Alay</title>
+  <title>Siyah Eldivenli Prenses — Berkay Alay</title>
   
-  <meta name="description" content="Bazı cümleler yazıldığı yerde kalmaz. Okuyanın içinde yer değiştirir." />
+  <meta name="description" content="Bazı izler silinmez. Sadece daha derine iner. Siyah Eldivenli Prenses'ten önce bir sessizlik dökümü." />
   
-  <meta property="og:title" content="İzler — Berkay Alay">
-  <meta property="og:description" content="Sessizliğin dökümü.">
-  <meta property="og:image" content="https://berkayalay53.github.io/izler.github.io/cover.jpg">
-  <meta property="og:url" content="https://berkayalay53.github.io/izler.github.io/">
+  <meta property="og:title" content="Siyah Eldivenli Prenses — Berkay Alay">
+  <meta property="og:description" content="Bazı izler silinmez. Sadece daha derine iner.">
+  <meta property="og:image" content="https://berkayalay53.github.io/eniyialintilar.github.io/cover.jpg">
+  <meta property="og:url" content="https://berkayalay53.github.io/eniyialintilar.github.io/">
+  <meta property="og:type" content="book">
+  
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="./cover.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="./cover.jpg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,11 +29,13 @@
   <div class="grain"></div>
 
   <header class="hero">
-    <h1>İzler</h1>
-    <p>
-      "Bazı cümleler yazıldığı yerde kalmaz.<br>
-      Okuyanın içinde yer değiştirir."
-    </p>
+    <div class="hero-bg"></div> <div class="hero-content">
+      <h1>Siyah Eldivenli<br>Prenses</h1>
+      <p>
+        "Bazı cümleler yazıldığı yerde kalmaz.<br>
+        Okuyanın içinde yer değiştirir."
+      </p>
+    </div>
   </header>
 
   <main class="stage">
@@ -120,9 +128,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     document.querySelectorAll('.quote').forEach(quote => {
       observer.observe(quote);

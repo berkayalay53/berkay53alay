@@ -1,7 +1,8 @@
-/* === SONSUZ GECE ATMOSFERİ === */
+/* === SONSUZ GECE VE PERA ATMOSFERİ === */
 :root {
   --bg: #080808;
   --text: #e0e0e0;
+  --accent: #d4a373; /* Pas Rengi */
   --serif: 'Playfair Display', serif;
   --sans: 'Inter', sans-serif;
 }
@@ -16,19 +17,18 @@ body {
   overflow-x: hidden;
 }
 
-/* ARKA PLAN RESMİ - SAYFA BOYU SABİT */
+/* ARKA PLAN RESMİ - TÜM SAYFADA SABİT */
 .fixed-bg {
   position: fixed;
   inset: 0;
   background-image: url('./cover.jpg');
   background-size: cover;
   background-position: center;
-  filter: blur(4px) brightness(0.25); /* Derin karanlık ve hafif pus */
-  z-index: -1; /* En arkada kalsın */
-  transform: scale(1.1); /* Blur kenarlarını gizlemek için */
+  filter: blur(5px) brightness(0.25);
+  z-index: -1;
+  transform: scale(1.1);
 }
 
-/* Film Greni */
 .grain {
   position: fixed;
   inset: 0;
@@ -41,7 +41,7 @@ body {
 
 /* === HERO (GİRİŞ) === */
 .hero {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,10 +52,11 @@ body {
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 400;
   color: #fff;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  margin-bottom: 20px;
 }
 
 .hero p {
@@ -63,38 +64,40 @@ body {
   font-style: italic;
   font-size: 1.2rem;
   opacity: 0.8;
-  margin-top: 1rem;
+  max-width: 600px;
 }
 
-/* === DİYALOG ALANI === */
+/* === SAHNE VE ALINTILAR === */
 .stage {
-  max-width: 850px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 1.5rem 10rem;
+  padding-bottom: 15rem;
 }
 
 .scene {
-  margin: 10rem 0;
+  margin: 12rem 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .divider {
   text-align: center;
-  color: rgba(255,255,255,0.2);
-  margin: 5rem 0;
-  font-size: 1.5rem;
+  color: rgba(212, 163, 115, 0.2);
+  margin: 6rem 0;
+  font-size: 2rem;
+  font-family: var(--serif);
 }
 
-/* ALINTILAR */
 .quote {
   max-width: 550px;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(50px);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  /* Hafif okunabilirlik katmanı */
-  background: rgba(0,0,0,0.2);
-  padding: 20px;
-  border-radius: 10px;
-  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.3);
+  padding: 30px;
+  border-radius: 4px;
+  backdrop-filter: blur(3px);
+  margin-bottom: 2rem;
 }
 
 .quote.visible {
@@ -104,50 +107,53 @@ body {
 
 .quote p {
   font-family: var(--serif);
-  font-size: clamp(1.3rem, 3vw, 1.7rem);
-  color: #efefef;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: #f0f0f0;
+  font-weight: 400;
 }
 
 .quote cite {
   display: block;
-  margin-top: 1.2rem;
-  font-size: 0.75rem;
-  letter-spacing: 2.5px;
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: #888;
+  color: var(--accent);
   font-style: normal;
 }
 
-.q-left { margin-right: auto; text-align: left; border-left: 1px solid rgba(212, 163, 115, 0.3); }
-.q-right { margin-left: auto; text-align: right; border-right: 1px solid rgba(212, 163, 115, 0.3); }
+.q-left { align-self: flex-start; text-align: left; border-left: 1px solid var(--accent); }
+.q-right { align-self: flex-end; text-align: right; border-right: 1px solid var(--accent); }
 
-/* VURGU SÖZÜ */
 .punchline {
   text-align: center;
-  margin: 12rem auto;
+  margin: 15rem auto;
+  max-width: 700px;
 }
 .punchline p {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
   color: #fff;
-  line-height: 1.4;
+  font-family: var(--serif);
   background: none;
+  border: none;
 }
 
-/* FOOTER */
-.end-mark { text-align: center; margin-top: 8rem; }
+.end-mark { text-align: center; margin-top: 10rem; }
 .home-link {
-  color: #aaa;
+  color: var(--accent);
   text-decoration: none;
-  border: 1px solid #444;
-  padding: 12px 30px;
+  border: 1px solid var(--accent);
+  padding: 15px 40px;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
   transition: 0.4s;
+  background: rgba(0,0,0,0.4);
 }
-.home-link:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.1); }
+.home-link:hover { background: var(--accent); color: #000; }
 
-/* Mobil Ayarı */
 @media (max-width: 768px) {
-  .scene { margin: 7rem 0; }
-  .quote { max-width: 100%; border: none; border-left: 2px solid #d4a373; }
+  .hero h1 { font-size: 3rem; }
+  .scene { margin: 8rem 1rem; }
+  .quote { max-width: 100%; }
 }

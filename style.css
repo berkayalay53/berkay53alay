@@ -1,20 +1,31 @@
-/* === ATMOSFER VE TEMEL AYARLAR === */
+/* === SONSUZ GECE ATMOSFERİ === */
 :root {
-  --bg: #0c0c0c;
+  --bg: #080808;
   --text: #e0e0e0;
-  --accent: #8a8a8a; /* Sönük gri detaylar */
-  --serif: 'Playfair Display', serif; /* O zarif, eski kitap fontu */
+  --serif: 'Playfair Display', serif;
   --sans: 'Inter', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg); /* Düz siyah zemin */
+  background-color: var(--bg);
   color: var(--text);
   font-family: var(--sans);
   line-height: 1.8;
   overflow-x: hidden;
+}
+
+/* ARKA PLAN RESMİ - SAYFA BOYU SABİT */
+.fixed-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('./cover.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.25); /* Derin karanlık ve hafif pus */
+  z-index: -1; /* En arkada kalsın */
+  transform: scale(1.1); /* Blur kenarlarını gizlemek için */
 }
 
 /* Film Greni */
@@ -22,95 +33,68 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.1;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
   z-index: 999;
 }
 
-/* === GİRİŞ (HERO) - RESİMLİ === */
+/* === HERO (GİRİŞ) === */
 .hero {
-  position: relative;
-  height: 70vh; /* Biraz daha yüksek olsun */
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 2rem;
-  overflow: hidden;
-}
-
-/* Resim Katmanı */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('./cover.jpg'); /* SENİN RESMİN BURADA */
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.3); /* Resmi karart ve bulanıklaştır */
-  transform: scale(1.05); /* Kenarlarda beyazlık kalmasın diye büyütme */
-  z-index: 1;
-}
-
-/* Yazı İçeriği */
-.hero-content {
-  position: relative;
-  z-index: 2; /* Resmin üstünde durması için */
-  opacity: 0;
-  animation: fadeIn 2s ease-out 0.5s forwards; /* Biraz gecikmeli gelsin */
 }
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 400;
-  letter-spacing: -1px;
-  margin-bottom: 1.5rem;
-  /* Yazıya hafif gölge vererek okunaklı yapalım */
-  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
   color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .hero p {
-  color: rgba(255,255,255,0.85);
-  max-width: 450px;
-  margin: 0 auto;
-  font-size: 1.1rem;
+  font-family: var(--serif);
   font-style: italic;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 1rem;
 }
 
-/* === DİYALOG SAHNESİ === */
+/* === DİYALOG ALANI === */
 .stage {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 6rem 1.5rem;
+  padding: 4rem 1.5rem 10rem;
 }
 
-/* Her bir konuşma bloğu */
 .scene {
-  margin: 8rem 0;
-  position: relative;
+  margin: 10rem 0;
 }
 
-/* Ara Çizgi (Sessizlik) */
 .divider {
   text-align: center;
-  color: #333;
-  margin: 4rem 0;
-  font-family: var(--serif);
+  color: rgba(255,255,255,0.2);
+  margin: 5rem 0;
   font-size: 1.5rem;
-  opacity: 0.5;
 }
 
-/* Alıntı Kutusu */
+/* ALINTILAR */
 .quote {
-  max-width: 500px;
-  margin-bottom: 2rem;
-  opacity: 0; /* Scroll ile gelecek */
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+  max-width: 550px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Hafif okunabilirlik katmanı */
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
 }
 
 .quote.visible {
@@ -120,92 +104,50 @@ body {
 
 .quote p {
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 400;
-  color: #d1d1d1;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: #efefef;
 }
 
 .quote cite {
   display: block;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   font-size: 0.75rem;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #666;
+  color: #888;
   font-style: normal;
-  font-family: var(--sans);
 }
 
-/* Konuşma Yönleri */
-.q-left {
-  margin-right: auto;
-  text-align: left;
-  border-left: 1px solid rgba(255,255,255,0.1);
-  padding-left: 25px;
-}
+.q-left { margin-right: auto; text-align: left; border-left: 1px solid rgba(212, 163, 115, 0.3); }
+.q-right { margin-left: auto; text-align: right; border-right: 1px solid rgba(212, 163, 115, 0.3); }
 
-.q-right {
-  margin-left: auto;
-  text-align: right;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  padding-right: 25px;
-}
-
-.q-right cite { text-align: right; }
-
-/* Vurgulu Cümleler (Ortada duranlar) */
+/* VURGU SÖZÜ */
 .punchline {
   text-align: center;
-  max-width: 600px;
-  margin: 8rem auto;
-  padding: 0 1rem;
+  margin: 12rem auto;
 }
 .punchline p {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: #fff;
   line-height: 1.4;
+  background: none;
 }
 
-/* === FOOTER === */
-.end-mark {
-  text-align: center;
-  margin-top: 6rem;
-  color: #444;
-}
-
+/* FOOTER */
+.end-mark { text-align: center; margin-top: 8rem; }
 .home-link {
-  display: inline-block;
-  margin-top: 2rem;
-  color: #888;
+  color: #aaa;
   text-decoration: none;
-  font-size: 0.9rem;
   border: 1px solid #444;
   padding: 12px 30px;
   border-radius: 50px;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: 0.4s;
 }
-.home-link:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255,255,255,0.05);
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+.home-link:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.1); }
 
 /* Mobil Ayarı */
 @media (max-width: 768px) {
-  .hero { height: 60vh; }
-  .q-left, .q-right {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
-    border: none;
-    border-left: 2px solid rgba(255,255,255,0.15);
-    padding-left: 20px;
-    padding-right: 0;
-  }
-  .q-right cite { text-align: left; }
+  .scene { margin: 7rem 0; }
+  .quote { max-width: 100%; border: none; border-left: 2px solid #d4a373; }
 }

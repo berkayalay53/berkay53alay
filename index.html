@@ -1,92 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>İzler</title>
-  <meta name="description" content="Bazı cümleler yazıldığı yerde kalmaz." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İzler — Berkay Alay</title>
+  
+  <meta name="description" content="Bazı cümleler yazıldığı yerde kalmaz. Okuyanın içinde yer değiştirir." />
+  
+  <meta property="og:title" content="İzler — Berkay Alay">
+  <meta property="og:description" content="Sessizliğin dökümü.">
+  <meta property="og:image" content="https://berkayalay53.github.io/izler.github.io/cover.jpg">
+  <meta property="og:url" content="https://berkayalay53.github.io/izler.github.io/">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
+  <div class="grain"></div>
+
   <header class="hero">
-    <div class="hero-inner">
-      <h1>İzler</h1>
-      <p>
-        Bazı cümleler yazıldığı yerde kalmaz.  
-        Okuyanın içinde yer değiştirir.
-      </p>
-    </div>
+    <h1>İzler</h1>
+    <p>
+      "Bazı cümleler yazıldığı yerde kalmaz.<br>
+      Okuyanın içinde yer değiştirir."
+    </p>
   </header>
 
-  <main class="page">
+  <main class="stage">
 
-    <section class="quote q-left">
-      <p>“Bu kitap anlatmaz. Daha çok... duyurmazken dokunur.”</p>
-      <span>Beynin Sessiz Fırtınaları</span>
-    </section>
+    <div class="scene">
+      <blockquote class="quote q-left">
+        <p>“Ben seni bir bakışta tanıdım. Ama sen beni hiçbir zaman fark etmedin. Ve fark etmemenin içinde öylesine bir adalet vardı ki... buna bile razı oldum.”</p>
+        <cite>Turuncu Saçlı Kız</cite>
+      </blockquote>
 
-    <section class="quote q-right">
-      <p>“Bazı cümleler vardır; sadece yazıldıkları için değil, henüz okunmadıkları için anlamlıdır.”</p>
-      <span>Beynin Sessiz Fırtınaları</span>
-    </section>
+      <div class="divider">~</div>
 
-    <section class="quote q-center">
-      <p>“Ben artık konuşamayan bir çocuk değilim. Ben, yazan bir sessizlik oldum.”</p>
-      <span>Kaybolan Sesin Defteri</span>
-    </section>
+      <blockquote class="quote q-right">
+        <p>“Tesadüf seni önüme çıkarmasaydı, gene aynı şekilde fakat her şeyden habersiz, yaşayıp gidecektim. Sen bana dünyada başka bir hayatın da mevcut olduğunu öğrettin.”</p>
+        <cite>Kürk Mantolu Madonna</cite>
+      </blockquote>
+    </div>
 
-    <section class="divider">
-      <span>•</span>
-    </section>
+    <div class="scene">
+      <blockquote class="quote q-left">
+        <p>“Seninle aynı bankta oturmadık belki. Ama bir gün seni bahçede tek başına otururken görmüştüm. Yanında olmak istemedim. Çünkü yalnızlığın bir zarafeti vardı. Sadece izledim.”</p>
+        <cite>Turuncu Saçlı Kız</cite>
+      </blockquote>
 
-    <section class="quote q-right bare">
-      <p>“Yanlış anlaşılmak, en çok kendini anlatmaktan vazgeçtiğinde olur.”</p>
-    </section>
+      <div class="divider">~</div>
 
-    <section class="quote q-left">
-      <p>“Belki de hiçbir zaman olmadım. Sadece başkalarının hatırasında yaşadım.”</p>
-      <span>Geçmişteki Sessizlik</span>
-    </section>
+      <blockquote class="quote q-right">
+        <p>“O gün yağmur başlamıştı. Ama ben başımı kaldırmış, sadece seni izliyordum. Saçlarının o ıslanmamış ama ıslanacakmış gibi duran hali... Ve o an, içimden ‘konuşma’ dedim. Çünkü senin sustuğun hâl, kelimelerin ulaşamayacağı kadar derin bir müzikti.”</p>
+        <cite>İsimsiz Bir Gözlemci</cite>
+      </blockquote>
+    </div>
 
-    <section class="quote q-center bare">
-      <p>“Ben oraya okumaya değil, susmaya gittim.”</p>
-    </section>
+    <div class="scene punchline">
+      <blockquote class="quote visible">
+        <p>“Sana hiç dokunmadan, seni hiç durdurmadan... sadece uzaktan bir şarkı gibi sevdim seni.”</p>
+      </blockquote>
+    </div>
 
-    <section class="divider">
-      <span>•</span>
-    </section>
+    <div class="scene">
+      <blockquote class="quote q-left">
+        <p>“Bir gün sana yaklaştım. Fark etmedin. Zaten fark etmeni istememiştim. Seninle hiç konuşmadan bir dil kurdum. Ve o dilde her kelime... sendin.”</p>
+        <cite>Turuncu Saçlı Kız</cite>
+      </blockquote>
 
-    <section class="quote q-left">
-      <p>“Bazen biri sizi hatırlamadan geçer. Ama siz... onu unutamazsınız.”</p>
-      <span>Kayıp Duyular Atlası</span>
-    </section>
+      <div class="divider">~</div>
 
-    <section class="quote q-right">
-      <p>“Seni tanımadan önce kelimelere inandım. Ama seni gördüğümde... sustum.”</p>
-      <span>Turuncu Saçlı Kız</span>
-    </section>
+      <blockquote class="quote q-right">
+        <p>“Konuşmak, bazen anlaşılmanın en zor yoludur. İnsanlar kelimelerine takılır... Ama içindeki o asıl niyeti, o sessiz çığlığı kimse duymaz. Ben bu yüzden sustum.”</p>
+        <cite>Beynin Sessiz Fırtınaları</cite>
+      </blockquote>
+    </div>
 
-    <section class="quote closing">
-      <p>“Bazı şeyler yaşanmaz, sadece hatırlanırmış gibi olur.”</p>
-      <span>Kayıp Duyular Atlası</span>
-    </section>
+    <div class="scene">
+      <blockquote class="quote q-left">
+        <p>“Yürüdüğün sokakları hatırlıyorum. Senin olmadığın ama seni düşündüğüm sokakları... Belki adımlarımız aynı kaldırım taşına değmiştir. Ama bil ki... senin geçtiğin hiçbir yer, benden sonra bir daha aynı kalmadı.”</p>
+        <cite>Geçmişteki Sessizlik</cite>
+      </blockquote>
 
-    <footer class="end">
-      <p>
-        Bu sayfa, kitaplardan taşan cümleler içindir.  
-        <br>
-        <small>Berkay Alay</small>
-      </p>
-    </footer>
+      <div class="divider">~</div>
+
+      <blockquote class="quote q-right">
+        <p>“Zaman geçti. Ama geçmedi. Hâlâ o sokaktayım. Dünya döndü, şehir değişti... ama o an, o tek an, içimde dondu kaldı.”</p>
+        <cite>Mazide Kalan</cite>
+      </blockquote>
+    </div>
+
+    <div class="scene">
+      <blockquote class="quote q-left">
+        <p>“Sana hiçbir zaman söylemeyeceğim cümlelerim var; onları yazdım. Bu deftere. Belki bir gün okursun. Belki bir gün, o gün sen de bir defter açarsın. Ve içinden ben çıkarım.”</p>
+        <cite>Bir Defterin İçinde Kalanlar</cite>
+      </blockquote>
+
+      <div class="divider">~</div>
+
+      <blockquote class="quote q-right">
+        <p>“Eğer bir gün bu kitabı okurken kalbinin bir yeri sızlarsa, bil ki ben de aynı sayfada durmuş, seni bekliyordum.”</p>
+        <cite>Turuncu Saçlı Kız</cite>
+      </blockquote>
+    </div>
+
+    <div class="end-mark">
+      <p>•</p>
+      <a href="https://berkayalay53.github.io/" class="home-link">Ana Sayfaya Dön</a>
+    </div>
 
   </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.quote').forEach(quote => {
+      observer.observe(quote);
+    });
+  </script>
 
 </body>
 </html>

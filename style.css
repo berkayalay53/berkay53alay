@@ -10,17 +10,14 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background:
-    radial-gradient(800px at 20% 10%, rgba(255,255,255,.03), transparent),
-    radial-gradient(800px at 80% 90%, rgba(255,255,255,.02), transparent),
-    var(--bg);
+  background: var(--bg); /* Düz siyah zemin */
   color: var(--text);
   font-family: var(--sans);
   line-height: 1.8;
   overflow-x: hidden;
 }
 
-/* Film Greni (Senin imzan) */
+/* Film Greni */
 .grain {
   position: fixed;
   inset: 0;
@@ -31,47 +28,69 @@ body {
   z-index: 999;
 }
 
-/* === GİRİŞ (HERO) === */
+/* === GİRİŞ (HERO) - RESİMLİ === */
 .hero {
-  height: 60vh;
+  position: relative;
+  height: 70vh; /* Biraz daha yüksek olsun */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 2rem;
+  overflow: hidden;
+}
+
+/* Resim Katmanı */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('./cover.jpg'); /* SENİN RESMİN BURADA */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.3); /* Resmi karart ve bulanıklaştır */
+  transform: scale(1.05); /* Kenarlarda beyazlık kalmasın diye büyütme */
+  z-index: 1;
+}
+
+/* Yazı İçeriği */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Resmin üstünde durması için */
   opacity: 0;
-  animation: fadeIn 2s ease-out forwards;
+  animation: fadeIn 2s ease-out 0.5s forwards; /* Biraz gecikmeli gelsin */
 }
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 400;
   letter-spacing: -1px;
-  margin-bottom: 1rem;
-  background: linear-gradient(to bottom, #fff, #666);
-  -webkit-background-clip: text;
-  color: transparent;
+  margin-bottom: 1.5rem;
+  /* Yazıya hafif gölge vererek okunaklı yapalım */
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+  color: #fff;
 }
 
 .hero p {
-  color: var(--accent);
-  max-width: 400px;
-  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 450px;
+  margin: 0 auto;
+  font-size: 1.1rem;
   font-style: italic;
+  line-height: 1.6;
 }
 
 /* === DİYALOG SAHNESİ === */
 .stage {
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 8rem;
+  padding: 6rem 1.5rem;
 }
 
 /* Her bir konuşma bloğu */
 .scene {
-  margin: 8rem 1.5rem;
+  margin: 8rem 0;
   position: relative;
 }
 
@@ -90,8 +109,8 @@ body {
   max-width: 500px;
   margin-bottom: 2rem;
   opacity: 0; /* Scroll ile gelecek */
-  transform: translateY(20px);
-  transition: all 1s ease;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .quote.visible {
@@ -112,7 +131,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #555;
+  color: #666;
   font-style: normal;
   font-family: var(--sans);
 }
@@ -122,14 +141,14 @@ body {
   margin-right: auto;
   text-align: left;
   border-left: 1px solid rgba(255,255,255,0.1);
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
 .q-right {
   margin-left: auto;
   text-align: right;
   border-right: 1px solid rgba(255,255,255,0.1);
-  padding-right: 20px;
+  padding-right: 25px;
 }
 
 .q-right cite { text-align: right; }
@@ -138,7 +157,7 @@ body {
 .punchline {
   text-align: center;
   max-width: 600px;
-  margin: 6rem auto;
+  margin: 8rem auto;
   padding: 0 1rem;
 }
 .punchline p {
@@ -150,24 +169,26 @@ body {
 /* === FOOTER === */
 .end-mark {
   text-align: center;
-  margin-top: 4rem;
-  color: #333;
+  margin-top: 6rem;
+  color: #444;
 }
 
 .home-link {
   display: inline-block;
   margin-top: 2rem;
-  color: #666;
+  color: #888;
   text-decoration: none;
   font-size: 0.9rem;
-  border: 1px solid #333;
-  padding: 10px 20px;
+  border: 1px solid #444;
+  padding: 12px 30px;
   border-radius: 50px;
   transition: all 0.3s ease;
+  letter-spacing: 1px;
 }
 .home-link:hover {
   color: #fff;
   border-color: #fff;
+  background: rgba(255,255,255,0.05);
 }
 
 @keyframes fadeIn {
@@ -176,14 +197,14 @@ body {
 
 /* Mobil Ayarı */
 @media (max-width: 768px) {
-  .hero { height: 50vh; }
+  .hero { height: 60vh; }
   .q-left, .q-right {
     text-align: left;
     margin-left: 0;
     margin-right: 0;
     border: none;
-    border-left: 2px solid rgba(255,255,255,0.1);
-    padding-left: 15px;
+    border-left: 2px solid rgba(255,255,255,0.15);
+    padding-left: 20px;
     padding-right: 0;
   }
   .q-right cite { text-align: left; }

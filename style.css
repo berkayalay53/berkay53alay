@@ -13,18 +13,18 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  line-height: 1.8;
+  line-height: 1.9;
   overflow-x: hidden;
 }
 
-/* ARKA PLAN RESMİ - TÜM SAYFADA SABİT */
+/* ARKA PLAN RESMİ - SAYFA BOYU SABİT */
 .fixed-bg {
   position: fixed;
   inset: 0;
   background-image: url('./cover.jpg');
   background-size: cover;
   background-position: center;
-  filter: blur(5px) brightness(0.25);
+  filter: blur(5px) brightness(0.2); /* Karartılmış ve puslu Beyoğlu */
   z-index: -1;
   transform: scale(1.1);
 }
@@ -33,15 +33,15 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.1;
+  opacity: 0.12;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
   z-index: 999;
 }
 
-/* === HERO (GİRİŞ) === */
+/* HERO */
 .hero {
-  height: 90vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,52 +52,38 @@ body {
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 400;
+  letter-spacing: 2px;
   color: #fff;
-  text-shadow: 0 10px 40px rgba(0,0,0,0.8);
-  margin-bottom: 20px;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.9);
 }
 
 .hero p {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.2rem;
-  opacity: 0.8;
-  max-width: 600px;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  margin-top: 15px;
 }
 
-/* === SAHNE VE ALINTILAR === */
-.stage {
+/* PAGE & QUOTES */
+.page {
   max-width: 900px;
-  margin: 0 auto;
-  padding-bottom: 15rem;
-}
-
-.scene {
-  margin: 12rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.divider {
-  text-align: center;
-  color: rgba(212, 163, 115, 0.2);
-  margin: 6rem 0;
-  font-size: 2rem;
-  font-family: var(--serif);
+  margin: auto;
+  padding: 0 1.5rem 10rem;
 }
 
 .quote {
-  max-width: 550px;
+  max-width: 520px;
+  margin: 8rem 0;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(40px);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  background: rgba(0,0,0,0.3);
-  padding: 30px;
+  background: rgba(0,0,0,0.25); /* Resmin üzerinde okunabilirlik için */
+  padding: 25px;
   border-radius: 4px;
-  backdrop-filter: blur(3px);
-  margin-bottom: 2rem;
+  backdrop-filter: blur(2px);
 }
 
 .quote.visible {
@@ -107,53 +93,42 @@ body {
 
 .quote p {
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: 1.6rem;
   color: #f0f0f0;
-  font-weight: 400;
 }
 
-.quote cite {
+.quote span {
   display: block;
-  margin-top: 1.5rem;
-  font-size: 0.7rem;
-  letter-spacing: 3px;
+  margin-top: 1.2rem;
+  font-size: .75rem;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--accent);
-  font-style: normal;
 }
 
-.q-left { align-self: flex-start; text-align: left; border-left: 1px solid var(--accent); }
-.q-right { align-self: flex-end; text-align: right; border-right: 1px solid var(--accent); }
+.q-left { margin-right: auto; text-align: left; border-left: 1px solid var(--accent); }
+.q-right { margin-left: auto; text-align: right; border-right: 1px solid var(--accent); }
+.q-center { margin-left: auto; margin-right: auto; text-align: center; border-bottom: 1px solid var(--accent); }
 
-.punchline {
+.divider {
   text-align: center;
-  margin: 15rem auto;
-  max-width: 700px;
-}
-.punchline p {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  color: #fff;
-  font-family: var(--serif);
-  background: none;
-  border: none;
+  margin: 6rem 0;
+  color: rgba(255,255,255,0.15);
+  font-size: 1.5rem;
 }
 
-.end-mark { text-align: center; margin-top: 10rem; }
+.end-mark { text-align: center; margin-top: 8rem; }
 .home-link {
   color: var(--accent);
   text-decoration: none;
   border: 1px solid var(--accent);
-  padding: 15px 40px;
+  padding: 12px 35px;
   border-radius: 50px;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+  font-size: 0.85rem;
   transition: 0.4s;
-  background: rgba(0,0,0,0.4);
 }
 .home-link:hover { background: var(--accent); color: #000; }
 
 @media (max-width: 768px) {
-  .hero h1 { font-size: 3rem; }
-  .scene { margin: 8rem 1rem; }
-  .quote { max-width: 100%; }
+  .quote { max-width: 100%; margin: 6rem 0; }
 }

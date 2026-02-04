@@ -280,3 +280,28 @@ body {
   position: relative;
   z-index: 1;
 }
+/* ========================================= */
+/* === ÖZEL KAYDIRMA ÇUBUĞU (SCROLLBAR) === */
+/* ========================================= */
+
+/* Çubuğun genişliği */
+::-webkit-scrollbar {
+  width: 8px; /* İnce ve kibar */
+}
+
+/* Çubuğun yolu (Arka planı) */
+::-webkit-scrollbar-track {
+  background: var(--bg); /* Sayfa rengiyle bütünleşsin (Siyah) */
+}
+
+/* Çubuğun kendisi (Hareket eden kısım) */
+::-webkit-scrollbar-thumb {
+  background: #333; /* Normalde sakin bir gri */
+  border-radius: 4px; /* Köşeleri yuvarlatılmış */
+  border: 1px solid var(--bg); /* Kenarlardan hafif ayrık dursun */
+}
+
+/* Üzerine gelince */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent); /* Dokununca pas rengi parlasın */
+}

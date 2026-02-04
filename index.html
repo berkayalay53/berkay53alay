@@ -30,7 +30,7 @@
   <div class="fixed-bg"></div>
   <div class="grain"></div>
 
-  <main class="page">
+  <main class="page" id="mainPage">
     
     <header class="hero-spacer"></header>
 
@@ -137,19 +137,28 @@
   </main>
 
   <script>
-    // INTRO MANTIĞI
+    // === GÜNCELLENMİŞ SCRIPT ===
     const introScreen = document.getElementById('intro-screen');
     const startBtn = document.getElementById('start-btn');
+    const mainPage = document.getElementById('mainPage');
 
     // Başlangıçta kaydırmayı kilitle
     document.body.style.overflow = 'hidden';
 
+    // Butona basınca Intro'yu kaldır
     startBtn.addEventListener('click', () => {
       introScreen.classList.add('fade-out');
-      document.body.style.overflow = 'auto'; // Kaydırmayı aç
+      
+      // Kaydırmayı aç
+      document.body.style.overflow = 'auto';
+      
+      // Intro tamamen gidince ekrandan sil (1.5sn animasyon süresi)
+      setTimeout(() => {
+        introScreen.style.display = 'none';
+      }, 1500);
     });
 
-    // SCROLL ANIMATION
+    // Aşağı inince yazıların gelme animasyonu
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -158,6 +167,7 @@
         }
       });
     }, { threshold: 0.1 });
+    
     document.querySelectorAll('.quote').forEach(quote => observer.observe(quote));
   </script>
 

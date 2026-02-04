@@ -218,3 +218,36 @@ body {
   .quote { max-width: 100%; margin: 6rem 0; }
   .intro-title { font-size: 3.5rem; }
 }
+/* ========================================= */
+/* === MOBİL İÇİN ÖZEL SIKIŞTIRMA AYARI === */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  
+  /* 1. Sayfa kenar boşluklarını azaltalım, metin genişlesin */
+  .page {
+    padding: 0 1.2rem 5rem; /* Kenarlardan daha az boşluk */
+  }
+
+  /* 2. Kutular arasındaki o devasa boşluğu (10rem) öldürelim */
+  .quote {
+    margin: 3.5rem 0; /* 10rem yerine 3.5rem. Çok daha seri akacak. */
+    padding: 20px;    /* Kutunun iç şişkinliğini de aldık */
+  }
+
+  /* 3. Yazı boyutunu mobilde bir tık kısalım, ekrana sığsın */
+  .quote p {
+    font-size: 1.25rem; /* Mobilde devasa durmasın */
+    line-height: 1.5;   /* Satır aralarını da hafif kıstık */
+  }
+  
+  /* 4. Ayıraç (~) işaretini de yaklaştıralım */
+  .divider {
+    margin: 3rem 0;
+  }
+
+  /* 5. Giriş Başlığı mobilde çok taşmasın */
+  .intro-title {
+    font-size: 3.5rem; 
+  }
+}

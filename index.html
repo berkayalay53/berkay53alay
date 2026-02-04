@@ -136,29 +136,36 @@
 
   </main>
 
-  <script>
-    // === GÜNCELLENMİŞ SCRIPT ===
+ <script>
+    // === GÜNCELLENMİŞ VE SORUNSUZ SCRIPT ===
+    
     const introScreen = document.getElementById('intro-screen');
     const startBtn = document.getElementById('start-btn');
-    const mainPage = document.getElementById('mainPage');
+    const pageContent = document.querySelector('.page'); // Ana içerik kutusu
 
-    // Başlangıçta kaydırmayı kilitle
-    document.body.style.overflow = 'hidden';
+    // Sayfa yüklendiğinde en tepeye al (Scroll'u sıfırla)
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
 
-    // Butona basınca Intro'yu kaldır
     startBtn.addEventListener('click', () => {
+      // 1. Perdeyi kaldır (Fade Out)
       introScreen.classList.add('fade-out');
-      
-      // Kaydırmayı aç
+
+      // 2. İçeriğin Işığını Yak (Fade In)
+      // "content-visible" sınıfını CSS'te tanımladık, opacity: 1 yapıyor.
+      pageContent.classList.add('content-visible');
+
+      // 3. Kaydırmayı serbest bırak
       document.body.style.overflow = 'auto';
-      
-      // Intro tamamen gidince ekrandan sil (1.5sn animasyon süresi)
+
+      // 4. Intro'yu tamamen yok et (Performans için)
       setTimeout(() => {
         introScreen.style.display = 'none';
       }, 1500);
     });
 
-    // Aşağı inince yazıların gelme animasyonu
+    // === ALINTILARIN GELİŞ EFEKTİ ===
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -167,7 +174,7 @@
         }
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.quote').forEach(quote => observer.observe(quote));
   </script>
 

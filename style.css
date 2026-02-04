@@ -251,3 +251,32 @@ body {
     font-size: 3.5rem; 
   }
 }
+/* === AÇILIŞ HATASINI GİDEREN KODLAR === */
+
+/* 1. Başlangıçta kaydırmayı CSS ile kilitliyoruz (JS beklemez) */
+body {
+  overflow: hidden; 
+}
+
+/* 2. Intro'nun arkasına "Zifiri Karanlık" koyuyoruz. 
+   Resim yüklenene kadar siyah görünür, beyaz parlamaz. */
+#intro-screen {
+  background-color: #080808; 
+}
+
+/* 3. Ana içerik (Yazılar) başlangıçta GÖRÜNMEZ olsun */
+.page {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* Perde kalkınca yavaşça gelecek */
+}
+
+/* 4. Butona basınca bu sınıf eklenecek ve içerik görünecek */
+.page.content-visible {
+  opacity: 1;
+}
+
+/* Mobilde kutuların üst üste binmemesi için ekstra güvenlik */
+.main {
+  position: relative;
+  z-index: 1;
+}

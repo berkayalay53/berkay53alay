@@ -17,35 +17,40 @@ body {
   overflow-x: hidden;
 }
 
-/* === 1. GİRİŞ EKRANI (INTRO - TURUNCU SAÇLI KIZ YAPISI) === */
+/* =============================================
+   1. GİRİŞ EKRANI (DÜZELTİLMİŞ)
+   =============================================
+*/
+
+/* Ana Kapsayıcı (Ekrana sabitlenir) */
 #intro-screen {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 10000;
+  z-index: 10000; /* En üstte */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Geçiş Efektleri */
   transition: opacity 1.5s ease-in-out, visibility 1.5s;
 }
 
-/* Katman 1: Arka Plan Resmi (Flu Olacak) */
+/* KATMAN 1: Arka Plan Resmi (Sadece bu bulanık olacak) */
 .intro-bg {
   position: absolute;
   inset: 0;
   background-image: url('./siyaheldivenliprenses.jpg');
   background-size: cover;
   background-position: center;
-  /* Karanlık ve Bulanık Efekt */
-  filter: brightness(0.4) blur(5px); 
-  transform: scale(1.1); /* Kenarlarda beyazlık kalmasın diye büyütme */
+  
+  /* İŞTE KRİTİK KOD BURADA: Sadece arka plana blur veriyoruz */
+  filter: brightness(0.4) blur(6px); 
+  transform: scale(1.1); /* Kenarlarda beyazlık kalmasın diye büyüttük */
   z-index: -1;
 }
 
-/* Katman 2: İçerik (Net Olacak) */
+/* KATMAN 2: İçerik (Bu NET kalacak) */
 .intro-content {
   position: relative;
   z-index: 10001;
@@ -54,6 +59,7 @@ body {
   animation: introFadeIn 1.5s ease;
 }
 
+/* Başlık Stili */
 .intro-title {
   font-family: var(--serif);
   font-size: clamp(3rem, 10vw, 6rem);
@@ -61,9 +67,11 @@ body {
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 20px;
-  text-shadow: 0 0 30px rgba(212, 163, 115, 0.3);
+  /* Yazı daha net okunsun diye gölge */
+  text-shadow: 0 0 30px rgba(212, 163, 115, 0.4);
 }
 
+/* Alıntı Stili */
 .intro-quote {
   font-family: var(--serif);
   font-size: 1.2rem;
@@ -71,12 +79,12 @@ body {
   font-style: italic;
   margin-bottom: 40px;
   line-height: 1.6;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
-/* Buton Tasarımı */
+/* Buton Stili */
 #start-btn {
-  background: rgba(0, 0, 0, 0.4); /* Hafif siyah zemin */
+  background: rgba(0, 0, 0, 0.3);
   color: var(--accent);
   border: 1px solid var(--accent);
   padding: 15px 40px;
@@ -86,7 +94,7 @@ body {
   text-transform: uppercase;
   border-radius: 50px;
   cursor: pointer;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px); /* Butonun arkası hafif buzlu */
   transition: all 0.4s ease;
 }
 
@@ -110,7 +118,12 @@ body {
 }
 
 
-/* === 2. ANA SAYFA ARKA PLANI === */
+/* =============================================
+   2. ANA SAYFA STİLLERİ
+   =============================================
+*/
+
+/* Sayfa Arka Planı (Sabit) */
 .fixed-bg {
   position: fixed;
   inset: 0;
@@ -132,7 +145,7 @@ body {
   z-index: 999;
 }
 
-/* === 3. ANA İÇERİK DÜZENİ === */
+/* Ana İçerik Konteynırı */
 .page {
   max-width: 900px;
   margin: auto;
@@ -144,6 +157,7 @@ body {
   height: 15vh; 
 }
 
+/* Alıntı Kutuları */
 .quote {
   max-width: 520px;
   margin: 10rem 0;
